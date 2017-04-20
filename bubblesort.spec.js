@@ -23,4 +23,22 @@ describe('Bubble Sort', function(){
     var stringArr = ["banana", "apple", "abcd"];
     expect( bubbleSort(stringArr)).toEqual(["abcd","apple","banana"]);
   });
+  it('callss swap once', function(){
+    var simpleArr = [2,1];
+    spyOn(window, 'swap').and.callThrough();
+    bubbleSort(simpleArr);
+    expect(window.swap.calls.count()).toEqual(1);
+  });
+  it('does\'nt calls swap', function(){
+    var anotherArr = [1,2,3,4,5];
+    spyOn(window, 'swap').and.callThrough();
+    bubbleSort(anotherArr);
+    expect(window.swap.calls.count()).toEqual(0);
+  });
+  it('callss swap once', function(){
+    var finalArr = [3,1,2];
+    spyOn(window, 'swap').and.callThrough();
+    bubbleSort(finalArr);
+    expect(window.swap.calls.count()).toEqual(2);
+  });
 });
