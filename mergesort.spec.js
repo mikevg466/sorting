@@ -48,7 +48,11 @@ describe("MergeSort", function(){
     });
   });
   describe("mergeSort function", function(){
-    xit('should be recursive', function(){});
+    it('should be recursive', function(){
+      spyOn(window, 'mergeSort').and.callThrough();
+      mergeSort([4, 8, 2, 9, 10, 1]);
+      expect(window.mergeSort.calls.count()).toEqual(11);
+    });
     it('should return a sorted array', function(){
       expect(mergeSort([4, 8, 2, 9, 10, 1])).toEqual([1, 2, 4, 8, 9, 10]);
     });

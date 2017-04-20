@@ -1,3 +1,5 @@
+'use strict';
+
 function split(array){
   var midPoint = Math.floor(array.length / 2);
   var result = [];
